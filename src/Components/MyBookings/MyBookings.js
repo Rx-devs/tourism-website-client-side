@@ -1,9 +1,10 @@
 import React from "react";
 
-const MyBookings = () => {
+const MyBookings = (props) => {
+    console.log(props)
     return (
         <div>
-            <h3>My Bookings List</h3>
+            <h3 className="text-center">Travel Bookings List</h3>
         </div>
     )
 }

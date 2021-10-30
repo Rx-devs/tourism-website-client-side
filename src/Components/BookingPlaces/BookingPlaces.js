@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import Place from "../Place/Place";
 
-const Bookings = () => {
+const BookingPlaces = () => {
     const [places, setPlaces] = useState([]);
     useEffect(() => {
         fetch('https://rocky-brushlands-10899.herokuapp.com/booking_places')
@@ -27,4 +27,4 @@ const Bookings = () => {
     );
 }
 
-export default Bookings;
+export default BookingPlaces;

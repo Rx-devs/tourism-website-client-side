@@ -1,8 +1,9 @@
 import React from "react";
-import { Card, Col } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import './Place.css';
 const Place = (props) => {
-    const { name, description, img, travelTrip, price } = props.place;
+    const { name, description, img, travelTrip, price, _id } = props.place;
     return (
         <div>
             <Col>
@@ -12,14 +13,13 @@ const Place = (props) => {
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
                             {description}
-                            {travelTrip}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                         <p>{price} USD</p>
-                        {/* <Link to="/">
-                        <Button>Purchase</Button>
-                        </Link> */}
+                        <Link to={`/purchaseBooking/${_id}`}>
+                            <Button>Book Now</Button>
+                        </Link>
                     </Card.Footer>
                 </Card>
             </Col>

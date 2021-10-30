@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AddBookingPlace from './Components/AddBookingPlace/AddBookingPlace';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -33,6 +34,10 @@ function App() {
               <Login></Login>
             </Route>
 
+            <Route path="/addBookingPlace">
+              <AddBookingPlace></AddBookingPlace>
+            </Route>
+
             <PrivateRoute path="/myBookings">
               <MyBookings></MyBookings>
             </PrivateRoute>
@@ -41,9 +46,9 @@ function App() {
               <ManageAllBookings></ManageAllBookings>
             </Route>
 
-            <Route path="/purchaseBooking">
+            <PrivateRoute path="/purchaseBooking/:_id">
               <PurchaseBooking></PurchaseBooking>
-            </Route>
+            </PrivateRoute>
 
           </Switch>
           <Footer></Footer>
