@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import ManageAllBookings from './Components/ManageAllBookings/ManageAllBookings';
 import MyBookings from './Components/MyBookings/MyBookings';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import PurchaseBooking from './Components/PurchaseBooking/PurchaseBooking';
 import AuthProvider from './Context/AuthProvider';
 
@@ -32,9 +33,9 @@ function App() {
               <Login></Login>
             </Route>
 
-            <Route path="/myBookings">
+            <PrivateRoute path="/myBookings">
               <MyBookings></MyBookings>
-            </Route>
+            </PrivateRoute>
 
             <Route path="/manageAllBookings">
               <ManageAllBookings></ManageAllBookings>
