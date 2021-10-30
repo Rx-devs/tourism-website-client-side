@@ -5,8 +5,7 @@ import Place from "../Place/Place";
 const Bookings = () => {
     const [places, setPlaces] = useState([]);
     useEffect(() => {
-        const url = "./fakeData.json"
-        fetch(url)
+        fetch('https://rocky-brushlands-10899.herokuapp.com/booking_places')
             .then(res => res.json())
             .then(data => setPlaces(data))
         
@@ -14,7 +13,7 @@ const Bookings = () => {
     return (
         <div>
             <Container>
-                <Row xs={1} md={3} className="g-4">
+                <Row xs={1} md={2} className="g-4">
                     {
                         places.map(place => <Place
                             key={place.name}
