@@ -8,7 +8,7 @@ import './banner.css';
 const Banner = () => {
     return (
         <div>
-            <Carousel variant="dark">
+            <Carousel variant="light">
                 <Carousel.Item>
                     <img
                         className="d-block w-100 banner-img"
@@ -16,8 +16,8 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <p>ITALY</p>
+                        <h1>VENEZIA</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -27,8 +27,8 @@ const Banner = () => {
                         alt="Second slide"
                     />
                     <Carousel.Caption>
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>SWITZERLAND</p>
+                        <h1>ZURICH</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -38,8 +38,8 @@ const Banner = () => {
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <p>PARIS</p>
+                        <h1>PARIS</h1>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

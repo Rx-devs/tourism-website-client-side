@@ -16,10 +16,12 @@ const Place = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <p>{price} USD</p>
-                        <Link to={`/purchaseBooking/${_id}`}>
-                            <Button>Book Now</Button>
-                        </Link>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h6>Booking Price: {price} USD</h6>
+                            <Link to={`/purchaseBooking/${_id}`}>
+                                <Button className="btn-danger">Book Now</Button>
+                            </Link>
+                        </div>
                     </Card.Footer>
                 </Card>
             </Col>

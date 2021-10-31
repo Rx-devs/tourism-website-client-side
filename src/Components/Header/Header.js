@@ -10,12 +10,14 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand href="#home">TravelExpress</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Link className="navLink" to="/home">Home</Link>
-                            <Link className="navLink" to="/addBookingPlace">Add A Booking Place</Link>
+                        </Nav>
+                        <Nav className="m-auto">
+                        <Link className="navLink" to="/addBookingPlace">Add A Booking Offer</Link>
                             {
                                 user.email && <Link className="navLink" to="/myBookings">My Bookings</Link>
                             }
@@ -32,7 +34,7 @@ const Header = () => {
                             </NavDropdown> */}
                         </Nav>
                         <Nav>
-                            <span className="text-light">{user.displayName}</span>
+                            <span className="text-light" style={{padding:'4px 12px'}}>{user.displayName}</span>
                     
                             {
                                 user.email ?

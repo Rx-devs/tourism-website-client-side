@@ -19,13 +19,12 @@ const AddBookingPlace = () => {
     return (
         <div>
             <Container>
-                <h3 className="text-center my-4">Add New Booking Place</h3>
+                <h3 className="text-center my-4">Add New Booking Offer</h3>
                 <form className="addBookings d-flex flex-column align-items-center justify-content-center" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Insert Image Url" {...register("img")} />
                     <input placeholder="Booking Place Name" {...register("name", { required: true, maxLength: 20 })} />
                     <textarea placeholder="Description" {...register("description")} />
                     <input placeholder="Booking Price" type="number" {...register("price")} />
-                
                     <input type="submit" />
                 </form>
             </Container>
