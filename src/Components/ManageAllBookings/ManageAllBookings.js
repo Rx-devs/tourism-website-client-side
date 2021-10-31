@@ -19,7 +19,8 @@ const  ManageAllBookings = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              setConrol(!control);
+                setConrol(!control);
+                alert('Booking Canceled sucessfully');
             } else {
               setConrol(false);
             }

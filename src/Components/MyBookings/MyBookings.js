@@ -21,7 +21,8 @@ const MyBookings = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              setConrol(!control);
+                setConrol(!control);
+                alert('Booking Canceled sucessfully');
             } else {
               setConrol(false);
             }
@@ -32,7 +33,7 @@ const MyBookings = () => {
         <div>
             <Container className="pt-5 vh-100">
                 <h3 className="text-center mb-5">My Bookings List</h3>
-                <Table striped bordered hover>
+                <Table striped bordered hover className="text-center">
                     <thead>
                         <tr>
                             <th>No</th>
