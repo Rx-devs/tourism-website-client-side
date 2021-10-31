@@ -13,7 +13,7 @@ const BookingPlaces = () => {
     return (
         <div>
             <Container className="py-5">
-                <h2 className="text-center mb-3">Our Booking Offers</h2>
+                <h2 className="text-center my-4">BEST BOOKING OFFERS</h2>
                 {
                     places.length === 0 ?
                         <div className="d-flex justify-content-center align-items-center my-5">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+const axios = require('axios');
 
 const PurchaseBooking = () => {
     const { _id } = useParams(); 
@@ -13,23 +14,23 @@ const PurchaseBooking = () => {
             .then(data => setBookingPlace(data))          
     }, []);
     
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => console.log(data);
-    /* const onSubmit = data => {
-        axios.post('https://rocky-brushlands-10899.herokuapp.com/booking_places', data)
+    const { register, handleSubmit, reset} = useForm();
+    // const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        axios.post('https://rocky-brushlands-10899.herokuapp.com/bookings', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('Added succesfully');
+                    alert('Purchase Booking Sucessfully');
                     reset();
             }
         })
-    }; */
+    };
 
     return (
         <div>
             <Container className="py-5">
                 <Row>
-                    <Col sm={12} md={6} >
+                    <Col className="mb-3" sm={12} md={6}>
                         <Card>
                             <Card.Img variant="top" className="banner-img" style={{ height: '250px' }} src={bookingPlace.img} />
                             <Card.Body>
@@ -48,17 +49,13 @@ const PurchaseBooking = () => {
                         <Card className="py-5">
                             <h3 className="text-center mb-4">Fill The Form</h3>
                             <form className="addBookings d-flex flex-column justify-content-center align-items-center" onSubmit={handleSubmit(onSubmit)}>
-                                {/* <div className="mb-4">
-                                <h5>Booking Place: {bookingPlace.name} {...register("bookingId")}</h5>
-                                <h6>Booking Id: {bookingPlace._id} {...register("placeName")}</h6>
-                                </div> */}
-                                <input  readOnly  className="w-75" placeholder={bookingPlace.name} {...register("placeName")}/>
-                                <input className="w-75" placeholder="Your Name" {...register("name")} />
-                                <input className="w-75" placeholder="Email" {...register("email")} />
-                                <input className="w-75" placeholder="Address" {...register("address")} />
-                                <input className="w-75" readOnly placeholder={bookingPlace.price}
-                                    type="number" {...register("price")} />
-                                <input className="btn btn-danger border-0" type="submit" value="Purchase" />
+                                <input  className="w-75" required placeholder={bookingPlace.name} {...register("placeName")}/>
+                                <input className="w-75" required placeholder="Your Name" {...register("name")} />
+                                <input className="w-75" required placeholder="Email" {...register("email")} />
+                                <input className="w-75" required placeholder="Address" {...register("address")} />
+                                <input className="w-75" placeholder="Contact Number"
+                                    type="number" {...register("phoneNumber")} />
+                                <input className=" w-75 btn btn-danger border-0" type="submit" value="Purchase" />
                             </form>
                         </Card>
                     </Col>

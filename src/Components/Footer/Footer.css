@@ -1,8 +1,8 @@
-.footer{
-    background-color: #000000;
-    color: #ffff;
+.footer-links .text-color:hover{
+    color: #fff;
 }
 .text-color{
     color: #cccccc;
     text-decoration: none;
+    margin:4px;
 }

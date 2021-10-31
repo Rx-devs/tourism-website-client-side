@@ -21,13 +21,9 @@ const Login = () => {
     return (
         <div className="my-5 d-flex justify-content-center align-items-center flex-column">
             <Card className="p-5 text-center">
-            <h3>Login Now</h3>
-            {/* <form className="d-flex justify-content-center align-items-center flex-column">
-                <input type="email" placeholder="Email" name="" id="" />
-                <input type="password" placeholder="Password" name="" id="" />
-                <input type="submit" value="Submit" />
-            </form> */}
-            <p className="mb-5">New to Travel Express</p>
+                <h3>Login Now</h3>
+                
+            <p className="mb-4">New to Travel Express or <br />Existing User </p>
             <button onClick={handleGoogleSignIn} className="btn btn-danger">Google Sign in</button>
             </Card>
         </div>

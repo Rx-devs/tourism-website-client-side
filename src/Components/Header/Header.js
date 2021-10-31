@@ -8,7 +8,7 @@ const Header = () => {
     const { user, logOut } = useAuth();
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-3">
                 <Container>
                     <Navbar.Brand href="#home">TravelExpress</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -17,7 +17,10 @@ const Header = () => {
                             <Link className="navLink" to="/home">Home</Link>
                         </Nav>
                         <Nav className="m-auto">
-                        <Link className="navLink" to="/addBookingPlace">Add A Booking Offer</Link>
+                        
+                            {
+                                user.email && <Link className="navLink" to="/addBookingPlace">Add A Booking Offer</Link>
+                            }
                             {
                                 user.email && <Link className="navLink" to="/myBookings">My Bookings</Link>
                             }

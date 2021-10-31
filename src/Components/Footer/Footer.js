@@ -5,28 +5,33 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <div className="footer py-5">
+        <div className="footer py-3 text-light bg-dark">
             <Container>
-                <Row>
+                <Row className="align-items-center my-2 g-4">
                     <Col xs={12} md={4}>
-                        <h2>TravelExpress</h2>
-                        <p className="text-color">Travel where you wanna go</p>
-                    </Col>
-                    <Col xs={12} md={4}>
-                        <h4>CONTACT INFO</h4>
-                        <div>
-                            <p className="text-color">732/21 Second Street, Manchester, King Street, Kingston United Kingdom</p>
-                            <p className="text-color">345-677-554</p>
-                            <p className="text-color">info@altairtheme.com</p>
+                        <div className="mb-3">
+                            <h4>TRAVELExpress</h4>
+                            <p className="text-color">Travel where you want to go</p>
                         </div>
                     </Col>
                     <Col xs={12} md={4}>
-                        <h4>TAGS</h4>
-                        <Nav>
-                            <Link className="text-color" to="/home">Home</Link>
-                            <Link className="text-color" to="/home">Travel</Link>
-                            <Link className="text-color" to="/home">Bookings</Link>
-                        </Nav>
+                        <div className="mb-3">
+                            <h4>CONTACT INFO</h4>
+                            <p className="text-color">Location: 732/21 Second Street, Manchester, King Street, Kingston United Kingdom</p>
+                            <p className="text-color">Phone: 345-677-554</p>
+                            <p className="text-color">Email: info@altairtheme.com</p>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={4}>
+                        <div className="w-50 mx-md-auto">
+                            <h4>TAGS</h4>
+                            <Nav className="footer-links flex-column">
+                                <Link className="text-color" to="/home">Home</Link>
+                                <Link className="text-color" to="/login">Login</Link>
+                                <Link className="text-color" to="/myBookings">My Bookings</Link>
+                                <Link className="text-color" to="/manageAllBookings">Manage All Bookings</Link>
+                            </Nav>
+                        </div>
                     </Col>
                 </Row>
             </Container>
