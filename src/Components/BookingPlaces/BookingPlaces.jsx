@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Spinner } from "react-bootstrap";
+import { serverBaseURL } from "../../Utilities/getURL";
 import Place from "../Place/Place";
 
 const BookingPlaces = () => {
     const [places, setPlaces] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/booking_places')
+        fetch(`${serverBaseURL}/booking_places`)
             .then(res => res.json())
             .then(data => setPlaces(data))
         

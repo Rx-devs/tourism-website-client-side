@@ -7,14 +7,14 @@ const MyBookings = () => {
     const [control, setConrol] = useState(false);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/myBookings/${user?.email}`)
+        fetch(`${serverBaseURL}myBookings/${user?.email}`)
             .then(res => res.json())
             .then(data => setBookings(data));
         
     }, [user.email,control]);
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/cancelBookings/${id}`, {
+        fetch(`${serverBaseURL}cancelBookings/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+import { serverBaseURL } from "../../Utilities/getURL";
 import useAuth from "../../hooks/useAuth";
 
 const PurchaseBooking = () => {
@@ -10,7 +11,7 @@ const PurchaseBooking = () => {
     const { user } = useAuth();
     const [ bookingPlace, setBookingPlace ] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/booking_places/${_id}`)
+        fetch(`${serverBaseURL}/booking_places/${_id}`)
             .then(res => res.json())
             .then(data => setBookingPlace(data))          
     }, [_id]);
@@ -18,7 +19,7 @@ const PurchaseBooking = () => {
     const { register, handleSubmit, reset} = useForm();
     // const onSubmit = data => console.log(data);
     const onSubmit = data => {
-        axios.post('http://localhost:5000/bookings', data)
+        axios.post(`${serverBaseURL}/bookings`, data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Purchase Booking Sucessfully');
@@ -36,7 +37,7 @@ const PurchaseBooking = () => {
             product_image: bookingPlace?.img,
             total_amount: bookingPlace?.price,
         }
-        fetch(`http://localhost:5000/init`, {
+        fetch(`${serverBaseURL}/init`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
+import { serverBaseURL } from "../../Utilities/getURL";
 
 const  ManageAllBookings = () => {
     const [bookings, setBookings] = useState([]);
     const [control, setConrol] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch(`${serverBaseURL}/bookings`)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [control]);
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/cancelBookings/${id}`, {
+        fetch(`${serverBaseURL}/cancelBookings/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })
