@@ -21,35 +21,27 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
-
             <Route exact path="/">
               <Home></Home>
             </Route>
-
             <Route path="/home">
               <Home></Home>
             </Route>
-
             <Route path="/login">
               <Login></Login>
             </Route>
-
             <Route path="/addBookingPlace">
               <AddBookingPlace></AddBookingPlace>
             </Route>
-
             <PrivateRoute path="/myBookings">
               <MyBookings></MyBookings>
             </PrivateRoute>
-
             <PrivateRoute path="/manageAllBookings">
               <ManageAllBookings></ManageAllBookings>
             </PrivateRoute>
-
             <PrivateRoute path="/purchaseBooking/:_id">
               <PurchaseBooking></PurchaseBooking>
             </PrivateRoute>
-
           </Switch>
           <Footer></Footer>
         </Router>

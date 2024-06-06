@@ -6,13 +6,13 @@ const  ManageAllBookings = () => {
     const [control, setConrol] = useState(false);
 
     useEffect(() => {
-        fetch('https://rocky-brushlands-10899.herokuapp.com/bookings')
+        fetch('http://localhost:5000/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [control]);
 
     const handleCancel = (id) => {
-        fetch(`https://rocky-brushlands-10899.herokuapp.com/cancelBookings/${id}`, {
+        fetch(`http://localhost:5000/cancelBookings/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })

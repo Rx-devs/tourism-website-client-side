@@ -1,23 +1,24 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-const axios = require('axios');
+import useAuth from "../../hooks/useAuth";
 
 const PurchaseBooking = () => {
     const { _id } = useParams(); 
-    
+    const { user } = useAuth();
     const [ bookingPlace, setBookingPlace ] = useState({});
     useEffect(() => {
-        fetch(`https://rocky-brushlands-10899.herokuapp.com/booking_places/${_id}`)
+        fetch(`http://localhost:5000/booking_places/${_id}`)
             .then(res => res.json())
             .then(data => setBookingPlace(data))          
-    }, []);
+    }, [_id]);
     
     const { register, handleSubmit, reset} = useForm();
     // const onSubmit = data => console.log(data);
     const onSubmit = data => {
-        axios.post('https://rocky-brushlands-10899.herokuapp.com/bookings', data)
+        axios.post('http://localhost:5000/bookings', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Purchase Booking Sucessfully');
@@ -25,6 +26,30 @@ const PurchaseBooking = () => {
             }
         })
     };
+
+    const handlePurchase = () => {
+        const order = {
+            cus_name: user?.displayName,
+            cus_email: user?.email,
+            product_name: bookingPlace?.name,
+            product_profile: bookingPlace?.description,
+            product_image: bookingPlace?.img,
+            total_amount: bookingPlace?.price,
+        }
+        fetch(`http://localhost:5000/init`, {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                window.location.replace(data)
+            })
+        
+    }
 
     return (
         <div>
@@ -41,6 +66,7 @@ const PurchaseBooking = () => {
                                     <h6>{bookingPlace.title}</h6>
                                     <div>{bookingPlace.description}</div>
                                     <div>Best Trip for {bookingPlace.travelTrip}</div>
+                                    <button onClick={handlePurchase} className="btn btn-danger" >Purchase Now</button>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -55,7 +81,7 @@ const PurchaseBooking = () => {
                                 <input className="w-75" required placeholder="Address" {...register("address")} />
                                 <input className="w-75" placeholder="Contact Number"
                                     type="number" {...register("phoneNumber")} />
-                                <input className=" w-75 btn btn-danger border-0" type="submit" value="Purchase" />
+                                <input className=" w-75 btn btn-danger border-0" type="submit" value="Purchase Now" />
                             </form>
                         </Card>
                     </Col>

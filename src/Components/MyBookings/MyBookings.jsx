@@ -7,14 +7,14 @@ const MyBookings = () => {
     const [control, setConrol] = useState(false);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`https://rocky-brushlands-10899.herokuapp.com/myBookings/${user?.email}`)
+        fetch(`http://localhost:5000/myBookings/${user?.email}`)
             .then(res => res.json())
             .then(data => setBookings(data));
         
     }, [user.email,control]);
 
     const handleCancel = (id) => {
-        fetch(`https://rocky-brushlands-10899.herokuapp.com/cancelBookings/${id}`, {
+        fetch(`http://localhost:5000/cancelBookings/${id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })

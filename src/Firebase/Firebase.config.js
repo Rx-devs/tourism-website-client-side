@@ -1,11 +1,11 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAwetpoA9HE7RRD5CCpJr_KSjqPJJTWRo0",
-  authDomain: "travel-express-authentication.firebaseapp.com",
-  projectId: "travel-express-authentication",
-  storageBucket: "travel-express-authentication.appspot.com",
-  messagingSenderId: "429915478964",
-  appId: "1:429915478964:web:6b34d31ff2a8aa834d30e1"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 export default firebaseConfig;

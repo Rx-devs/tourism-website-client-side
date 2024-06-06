@@ -1,13 +1,13 @@
+import axios from "axios";
 import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import './AddBookingPlace.css';
-const axios = require('axios');
 
 const AddBookingPlace = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-        axios.post('https://rocky-brushlands-10899.herokuapp.com/booking_places', data)
+        axios.post('http://localhost:5000/booking_places', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added succesfully');

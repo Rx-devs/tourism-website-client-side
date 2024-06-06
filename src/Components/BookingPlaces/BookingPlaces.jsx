@@ -5,7 +5,7 @@ import Place from "../Place/Place";
 const BookingPlaces = () => {
     const [places, setPlaces] = useState([]);
     useEffect(() => {
-        fetch('https://rocky-brushlands-10899.herokuapp.com/booking_places')
+        fetch('http://localhost:5000/booking_places')
             .then(res => res.json())
             .then(data => setPlaces(data))
         
